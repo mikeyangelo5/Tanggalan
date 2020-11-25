@@ -19,7 +19,7 @@ public class HalamanLogin extends AppCompatActivity {
         gotoCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HalamanLogin.this, HalamanCalendar.class);
+                Intent intent = new Intent(HalamanLogin.this, NavigationDrawer.class);
                 startActivity(intent);
             }
         });

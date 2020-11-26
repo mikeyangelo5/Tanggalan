@@ -15,7 +15,8 @@
         android:text="Username"
         android:textColor="@color/colorBlack"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_marginRight="25dp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/input_username"
@@ -27,7 +28,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:inputType="text"/>
+        android:inputType="text"
+        tools:ignore="Autofill,HardcodedText" />
 
     <TextView
         android:layout_width="match_parent"
@@ -37,7 +39,8 @@
         android:textColor="@color/colorBlack"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_marginRight="25dp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/input_password"
@@ -49,7 +52,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:inputType="text"/>
+        android:inputType="text"
+        tools:ignore="Autofill,HardcodedText,TextFields" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -59,6 +63,7 @@
         android:text="Login"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_marginRight="25dp"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

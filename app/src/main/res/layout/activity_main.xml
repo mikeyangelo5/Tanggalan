@@ -24,7 +24,7 @@
         android:layout_height="40dp"
         android:background="@color/colorWhite"
         android:gravity="center_horizontal"
-        android:hint="Password"
+        android:hint="Username"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -52,7 +52,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:inputType="text"
+        android:inputType="textPassword"
         tools:ignore="Autofill,HardcodedText,TextFields" />
 
     <Button

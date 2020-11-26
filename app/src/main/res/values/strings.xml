@@ -11,4 +11,5 @@
     <string name="menu_year">Year</string>
     <string name="menu_month">Month</string>
     <string name="menu_week">Week</string>
+    <string name="action_logout">Logout</string>
 </resources>

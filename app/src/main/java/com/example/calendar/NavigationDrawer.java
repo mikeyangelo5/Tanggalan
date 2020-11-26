@@ -33,12 +33,12 @@ public class NavigationDrawer extends AppCompatActivity {
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton btnEvent = findViewById(R.id.btnAddEvent);
+        btnEvent.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent intent = new Intent(NavigationDrawer.this, AddEvent.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -60,14 +60,7 @@ public class NavigationDrawer extends AppCompatActivity {
                 Log.d(TAG, "onSelectedDayChange: date: " + date);
             }
         });
-        btnEvent = (Button) findViewById(R.id.btnAddEvent);
-        btnEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NavigationDrawer.this, AddEvent.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override

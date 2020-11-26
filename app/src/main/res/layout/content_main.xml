@@ -23,14 +23,4 @@
         android:layout_height="wrap_content"
         android:id="@+id/calendarView"
         tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/btnAddEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Add Event"
-        tools:ignore="MissingConstraints"
-        android:layout_below="@+id/calendarView"
-        tools:layout_editor_absoluteX="260dp"
-        tools:layout_editor_absoluteY="360dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package com.example.calendar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.CalendarView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +25,7 @@ public class NavigationDrawer extends AppCompatActivity {
     private static final String TAG = "CalendarActivity";
     private CalendarView kalender;
     private AppBarConfiguration mAppBarConfiguration;
+    private Button btnEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,14 @@ public class NavigationDrawer extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 String date = year + "/" + month + "/" + dayOfMonth;
                 Log.d(TAG, "onSelectedDayChange: date: " + date);
+            }
+        });
+        btnEvent = (Button) findViewById(R.id.btnAddEvent);
+        btnEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NavigationDrawer.this, AddEvent.class);
+                startActivity(intent);
             }
         });
     }

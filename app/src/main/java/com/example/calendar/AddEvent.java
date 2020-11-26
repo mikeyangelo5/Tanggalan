@@ -26,7 +26,7 @@ public class AddEvent extends AppCompatActivity {
         createEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AddEvent.this, HalamanCalendar.class);
+                Intent i = new Intent(AddEvent.this, NavigationDrawer.class);
                 startActivity(i);
             }
         });
@@ -34,7 +34,7 @@ public class AddEvent extends AppCompatActivity {
         cancelCreateEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AddEvent.this, HalamanCalendar.class);
+                Intent i = new Intent(AddEvent.this, NavigationDrawer.class);
                 startActivity(i);
             }
         });

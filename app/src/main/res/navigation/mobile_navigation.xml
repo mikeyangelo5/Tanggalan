@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.calendar.ui.home.HomeFragment"
+        android:name="com.example.calendar.ui.home.MonthFragment"
         android:label="@string/menu_month"
         tools:layout="@layout/fragment_month" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.calendar.ui.gallery.GalleryFragment"
+        android:name="com.example.calendar.ui.gallery.YearFragment"
         android:label="@string/menu_year"
         tools:layout="@layout/fragment_year" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.calendar.ui.slideshow.SlideshowFragment"
+        android:name="com.example.calendar.ui.slideshow.WeekFragment"
         android:label="@string/menu_week"
         tools:layout="@layout/fragment_week" />
 </navigation>

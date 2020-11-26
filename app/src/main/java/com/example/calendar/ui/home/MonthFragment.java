@@ -1,4 +1,4 @@
-package com.example.calendar.ui.slideshow;
+package com.example.calendar.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.calendar.R;
 
-public class SlideshowFragment extends Fragment {
+public class MonthFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private MonthViewModel monthViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_week, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        monthViewModel =
+                ViewModelProviders.of(this).get(MonthViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_month, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        monthViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

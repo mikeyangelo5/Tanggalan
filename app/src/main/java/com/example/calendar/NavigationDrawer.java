@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import java.text.DateFormatSymbols;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,8 +34,9 @@ public class NavigationDrawer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         tvDate = findViewById(R.id.tv_date);
+
 
         setSupportActionBar(toolbar);
         FloatingActionButton btnEvent = findViewById(R.id.btnAddEvent);
@@ -57,13 +59,17 @@ public class NavigationDrawer extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         kalender = (CalendarView) findViewById(R.id.calendarView);
-        kalender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String date = year + "/" + month + "/" + dayOfMonth;
-                Log.d(TAG, "onSelectedDayChange: date: " + date);
-            }
-        });
+//        kalender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+//            @Override
+//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+//                String date = year + "/" + month + "/" + dayOfMonth;
+//                String datee = new DateFormatSymbols().getMonths()[month];
+//                Log.d(TAG, "onSelectedDayChange: date: " + date);
+//                toolbar.setTitle(datee);
+//
+//            }
+//
+//        });
     }
 
 

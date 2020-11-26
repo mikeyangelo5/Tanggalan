@@ -69,7 +69,45 @@ public class AddEvent extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month+1;
-                String date = dayOfMonth + "/" + month + "/" + year;
+                String newMonth = "";
+
+                if(month==1){
+                    newMonth = "January";
+                }
+                else if(month==2){
+                    newMonth = "February";
+                }
+                else if(month==3){
+                    newMonth = "March";
+                }
+                else if(month==4){
+                    newMonth = "April";
+                }
+                else if(month==5){
+                    newMonth = "May";
+                }
+                else if(month==6){
+                    newMonth = "June";
+                }
+                else if(month==7){
+                    newMonth = "July";
+                }
+                else if(month==8){
+                    newMonth = "August";
+                }
+                else if(month==9){
+                    newMonth = "September";
+                }
+                else if(month==10){
+                    newMonth = "October";
+                }
+                else if(month==11){
+                    newMonth = "November";
+                }
+                else if(month==12){
+                    newMonth = "December";
+                }
+                String date = dayOfMonth + " " + newMonth + " " + year;
                 tvDate.setText(date);
             }
         };

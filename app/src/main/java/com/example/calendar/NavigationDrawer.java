@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -26,12 +27,15 @@ public class NavigationDrawer extends AppCompatActivity {
     private CalendarView kalender;
     private AppBarConfiguration mAppBarConfiguration;
     private Button btnEvent;
+    private TextView tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        tvDate = findViewById(R.id.tv_date);
+
         setSupportActionBar(toolbar);
         FloatingActionButton btnEvent = findViewById(R.id.btnAddEvent);
         btnEvent.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +64,8 @@ public class NavigationDrawer extends AppCompatActivity {
                 Log.d(TAG, "onSelectedDayChange: date: " + date);
             }
         });
-
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

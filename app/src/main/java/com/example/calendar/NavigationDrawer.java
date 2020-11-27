@@ -14,6 +14,8 @@ import java.text.DateFormatSymbols;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -30,10 +32,14 @@ public class NavigationDrawer extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private Button btnEvent;
     private TextView tvDate;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore firebaseFirestoreDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        firebaseFirestoreDb = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_navigation_drawer);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         tvDate = findViewById(R.id.tv_date);
@@ -92,10 +98,14 @@ public class NavigationDrawer extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_logout:
-                startActivity(new Intent(NavigationDrawer.this, HalamanLogin.class));
-                return true;
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),HalamanLogin.class));
+                finish();
+
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

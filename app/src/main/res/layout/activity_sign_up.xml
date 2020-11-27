@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="New Username"
+        android:text="New Email"
         android:textColor="@color/colorBlack"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         tools:ignore="HardcodedText" />
 
     <EditText
-        android:id="@+id/newUsername"
+        android:id="@+id/newEmail"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorWhite"

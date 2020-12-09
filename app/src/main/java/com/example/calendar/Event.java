@@ -1,22 +1,34 @@
 package com.example.calendar;
 
 public class Event {
-    private String date;
+    private String tanggalMulai;
+    private String tanggalSelesai;
     private String event;
     private String address;
+    private String note;
 
-    public Event(String date, String event, String address) {
-        this.date = date;
+    public Event(String tanggalMulai, String tanggalSelesai, String event, String address, String note) {
+        this.tanggalMulai = tanggalMulai;
+        this.tanggalSelesai = tanggalSelesai;
         this.event = event;
         this.address = address;
+        this.note = note;
     }
 
-    public String getDate() {
-        return date;
+    public String getTanggalMulai() {
+        return tanggalMulai;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTanggalMulai(String tanggalMulai) {
+        this.tanggalMulai = tanggalMulai;
+    }
+
+    public String getTanggalSelesai() {
+        return tanggalSelesai;
+    }
+
+    public void setTanggalSelesai(String tanggalSelesai) {
+        this.tanggalSelesai = tanggalSelesai;
     }
 
     public String getEvent() {
@@ -33,5 +45,13 @@ public class Event {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

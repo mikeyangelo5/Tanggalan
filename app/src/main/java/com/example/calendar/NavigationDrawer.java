@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import java.text.DateFormatSymbols;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -25,8 +27,9 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class NavigationDrawer extends AppCompatActivity {
+public class NavigationDrawer extends AppCompatActivity{
     private static final String TAG = "CalendarActivity";
     private CalendarView kalender;
     private AppBarConfiguration mAppBarConfiguration;
@@ -34,16 +37,23 @@ public class NavigationDrawer extends AppCompatActivity {
     private TextView tvDate;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firebaseFirestoreDb;
+//    private RecyclerView event;
+//    private FirestoreRecyclerAdapter listEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+
+//        setContentView(R.layout.content_main);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//
+//        getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new NavigationDrawer()).commit();
+
         firebaseFirestoreDb = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_navigation_drawer);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         tvDate = findViewById(R.id.tv_date);
-
 
         setSupportActionBar(toolbar);
         FloatingActionButton btnEvent = findViewById(R.id.btnAddEvent);

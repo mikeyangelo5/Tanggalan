@@ -8,18 +8,42 @@
     android:paddingRight="5dp"
     android:paddingBottom="20dp"
     tools:context=".AddEvent"
+    android:background="#00b3ff"
     android:orientation="vertical">
 
-    <TextView
-        android:gravity="center_horizontal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_date"
-        android:text="Select Date"
-        android:textSize="20dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:textColor="#000000"/>
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:text="Tanggal Mulai"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:textSize="40dp"/>
+
+        <TextView
+            android:id="@+id/tv_date2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:text="Tanggal Selesai"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -36,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorWhite"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:hint="Type Event Title"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
@@ -59,13 +83,38 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorWhite"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:hint="Type Event Address"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:inputType="text"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Note"
+        android:textColor="@color/colorBlack" />
+
+    <EditText
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorWhite"
+        android:ems="10"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/btnSaveEvent"

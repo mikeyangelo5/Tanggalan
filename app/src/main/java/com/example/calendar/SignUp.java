@@ -49,7 +49,7 @@ public class SignUp extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = newEmail.getText().toString().trim();
+                final String email = newEmail.getText().toString().trim();
                 String password = newPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email) && TextUtils.isEmpty(password)){
@@ -83,6 +83,7 @@ public class SignUp extends AppCompatActivity {
                             users.setPassword(newPassword.getText().toString());
                             documentReference.set(users);
                             Toast.makeText(SignUp.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                            intent.putExtra("userLogin", newEmail.getText().toString());
                             startActivity(intent);
                         } else {
                             Toast.makeText(SignUp.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT);

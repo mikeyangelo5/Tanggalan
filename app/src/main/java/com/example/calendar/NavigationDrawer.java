@@ -1,5 +1,6 @@
 package com.example.calendar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,8 +20,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -58,7 +62,6 @@ public class NavigationDrawer extends AppCompatActivity {
         uid = mAuth.getUid();
         itemlist = new ArrayList<>();
         firebaseFirestoreDb = FirebaseFirestore.getInstance();
-        email = (TextView) findViewById(R.id.username);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         tvDate = findViewById(R.id.tv_date);
@@ -76,7 +79,7 @@ public class NavigationDrawer extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_reminder, R.id.nav_week)
+                R.id.nav_home, R.id.nav_reminder)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -97,23 +100,15 @@ public class NavigationDrawer extends AppCompatActivity {
 //
 //        });
 
-//        loadUserInformation();
+        loadUserInformation();
 //
     }
-//    private void loadUserInformation(){
-//        Log.i(TAG, "getAllDocument: masuk logi");
-//        String string= mAuth.getCurrentUser().getEmail().toString();
-//        firebaseFirestoreDb.collection("DaftarUser")
-//                .document(string)
-//                .get()
-//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                        email.setText(documentSnapshot.get("username").toString());
-//
-//                    }
-//                });
-//    }
+    private void loadUserInformation(){
+        Log.i(TAG, "getAllDocument: masuk logi");
+        if(getIntent().hasExtra("userLogin")) {
+            email.setText(getIntent().getStringExtra("userLogin"));
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

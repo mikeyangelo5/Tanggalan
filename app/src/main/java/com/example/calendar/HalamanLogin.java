@@ -23,9 +23,15 @@ public class HalamanLogin extends AppCompatActivity {
     private Button gotoCalendar;
     private TextView gotoDaftar;
     private EditText input_email;
+    private TextView result;
     private EditText input_password;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firebaseFirestoreDb;
+//    private static String username;
+//
+//    public static String getUsername() {
+//        return username;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,7 @@ public class HalamanLogin extends AppCompatActivity {
         input_password = (EditText) findViewById(R.id.input_password);
         gotoCalendar = (Button) findViewById(R.id.btnLogin);
         gotoDaftar = (TextView) findViewById(R.id.btnDaftar);
+        result = (TextView) findViewById(R.id.username);
         final Intent intent = new Intent(HalamanLogin.this, NavigationDrawer.class);
 
         if (mAuth.getCurrentUser() != null) {
@@ -98,4 +105,5 @@ public class HalamanLogin extends AppCompatActivity {
             }
         });
     }
+
 }

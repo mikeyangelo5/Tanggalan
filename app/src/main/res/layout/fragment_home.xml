@@ -31,13 +31,5 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-4dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/readdata"
-        android:layout_width="410dp"
-        android:layout_height="365dp"
-        android:text="@string/hello_blank_fragment"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="363dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

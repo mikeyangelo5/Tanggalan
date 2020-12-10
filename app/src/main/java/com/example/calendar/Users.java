@@ -4,16 +4,20 @@ public class Users {
     private String email;
     private String password;
 
+public Users(){
+
+}
     public Users(String username, String password){
-        this.email=email;
+        this.email=username;
         this.password=password;
     }
 
-    public String getUsername() {
+
+    public String getEmail() {
         return email;
     }
 
-    public void setUsername(String username) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

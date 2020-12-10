@@ -7,6 +7,9 @@ public class Event {
     private String address;
     private String note;
 
+    public Event(){
+
+    }
     public Event(String tanggalMulai, String tanggalSelesai, String event, String address, String note) {
         this.tanggalMulai = tanggalMulai;
         this.tanggalSelesai = tanggalSelesai;

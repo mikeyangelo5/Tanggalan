@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUp extends AppCompatActivity {
@@ -34,10 +35,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        firebaseFirestoreDb = FirebaseFirestore.getInstance();
         daftar = (Button) findViewById(R.id.btnRegis);
         newEmail = (EditText) findViewById(R.id.newEmail);
         newPassword = (EditText) findViewById(R.id.newPassword);
+        firebaseFirestoreDb = FirebaseFirestore.getInstance();
         final Intent intent = new Intent(SignUp.this, NavigationDrawer.class);
 
         if (mAuth.getCurrentUser() != null) {
@@ -75,6 +76,12 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            DocumentReference documentReference = firebaseFirestoreDb.collection("DaftarUser")
+                                    .document();
+                            Users users = new Users();
+                            users.setEmail(newEmail.getText().toString());
+                            users.setPassword(newPassword.getText().toString());
+                            documentReference.set(users);
                             Toast.makeText(SignUp.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         } else {

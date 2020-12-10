@@ -11,19 +11,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="20dp"
+        android:paddingBottom="40dp"
+        android:background="#00b3ff">
 
         <TextView
             android:id="@+id/namaEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/isiEvent"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="-34dp"
             android:gravity="center_vertical"
-            android:text="Event  :"
-            android:textColor="#000"
-            android:textSize="25dp"
+            android:text="Event                     :"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/isiEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/namaEvent"
+            android:gravity="center_vertical"
+            android:text="Judul Event"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,10 +48,9 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Tanggal Mulai     :"
-            android:textColor="#000"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:textStyle="bold" />
-
 
         <TextView
             android:id="@+id/tanggalSelesai"
@@ -49,7 +61,7 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Tanggal Selesai  :"
-            android:textColor="#000"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -58,13 +70,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tanggalMulai"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/tanggalSelesai"
             android:gravity="center_vertical"
             android:text="Tanggal mulai"
-            android:textColor="#000"
-            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
@@ -75,20 +87,8 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
-            android:text="Address  :"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/catatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/address"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:gravity="center_vertical"
-            android:text="Note : "
-            android:textColor="#000"
+            android:text="Address                :"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -97,53 +97,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/namaEvent"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/tanggalMulai"
             android:gravity="center_vertical"
             android:text="Tanggal mulai"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/isiEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@+id/namaEvent"
-            android:gravity="center_vertical"
-            android:text="Judul Event"
-            android:textColor="#000"
-            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/isiAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/isiTanggalSelesai"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/address"
             android:gravity="center_vertical"
             android:text="Alamat Event"
-            android:textColor="#000"
-            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:textStyle="bold" />
+
         <TextView
-            android:id="@+id/isiNote"
+            android:id="@+id/catatan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/isiAddress"
-            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/address"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:text="Note                      :"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/isiNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/isiAddress"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/address"
             android:gravity="center_vertical"
             android:text="Note"
-            android:textColor="#000"
-            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/isiNote"
+            android:text="Delete" />
 
     </RelativeLayout>
 

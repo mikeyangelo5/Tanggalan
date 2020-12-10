@@ -200,7 +200,7 @@ public class AddEvent extends AppCompatActivity {
 
     public void tambahEvent(){
         Event event = new Event(tvDate.getText().toString(), tvDate2.getText().toString(), titleEvent.getText().toString(), addressEvent.getText().toString(), note.getText().toString());
-        firebaseFirestoreDb.collection("Event").document(event.getEvent()).set(event)
+        firebaseFirestoreDb.collection("Event").document(event.getTanggalMulai()).set(event)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

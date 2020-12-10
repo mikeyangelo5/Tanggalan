@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.calendar.R;
 
-public class MonthFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private MonthViewModel monthViewModel;
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        monthViewModel =
-                ViewModelProviders.of(this).get(MonthViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_month, container, false);
+        homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
-        monthViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

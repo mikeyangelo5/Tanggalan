@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.MonthFragment">
+    tools:context=".ui.home.HomeFragment">
+
 
     <TextView
         android:id="@+id/text_home"
@@ -20,4 +21,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_horizontal" />
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="415dp"
+        android:layout_height="339dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-4dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/readdata"
+        android:layout_width="410dp"
+        android:layout_height="365dp"
+        android:text="@string/hello_blank_fragment"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="363dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,15 +2,12 @@ package com.example.calendar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import java.text.DateFormatSymbols;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,7 +16,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,37 +25,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class NavigationDrawer extends AppCompatActivity{
+public class NavigationDrawer extends AppCompatActivity {
     private static final String TAG = "CalendarActivity";
     private CalendarView kalender;
     private AppBarConfiguration mAppBarConfiguration;
     private Button btnEvent;
     private TextView tvDate;
     private FirebaseAuth mAuth;
+    RecyclerView recyclerView;
     private FirebaseFirestore firebaseFirestoreDb;
-//    private RecyclerView event;
-//    private FirestoreRecyclerAdapter listEvent;
+    private FirestoreRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-
-//        setContentView(R.layout.content_main);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new NavigationDrawer()).commit();
-
         firebaseFirestoreDb = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_navigation_drawer);
-        final Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         tvDate = findViewById(R.id.tv_date);
-
         setSupportActionBar(toolbar);
         FloatingActionButton btnEvent = findViewById(R.id.btnAddEvent);
         btnEvent.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(NavigationDrawer.this, AddEvent.class);
                 startActivity(intent);
             }
@@ -69,26 +58,13 @@ public class NavigationDrawer extends AppCompatActivity{
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_year, R.id.nav_week)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        kalender = (CalendarView) findViewById(R.id.calendarView);
-//        kalender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-//                String date = year + "/" + month + "/" + dayOfMonth;
-//                String datee = new DateFormatSymbols().getMonths()[month];
-//                Log.d(TAG, "onSelectedDayChange: date: " + date);
-//                toolbar.setTitle(datee);
-//
-//            }
-//
-//        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,7 +79,6 @@ public class NavigationDrawer extends AppCompatActivity{
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
@@ -116,6 +91,4 @@ public class NavigationDrawer extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

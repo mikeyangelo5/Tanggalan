@@ -39,6 +39,7 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
+
         <TextView
             android:id="@+id/tanggalSelesai"
             android:layout_width="wrap_content"
@@ -75,6 +76,18 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Address  :"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/catatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:text="Note : "
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -115,6 +128,19 @@
             android:layout_toRightOf="@+id/address"
             android:gravity="center_vertical"
             android:text="Alamat Event"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/isiNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/isiAddress"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/address"
+            android:gravity="center_vertical"
+            android:text="Note"
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold" />

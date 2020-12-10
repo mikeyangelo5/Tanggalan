@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,25 +19,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.calendar.Event;
 import com.example.calendar.R;
+import com.example.calendar.SignUp;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class Reminder extends Fragment {
 
-    //    private ReminderViewModel reminderViewModel;
-    private RecyclerView reminder;
+    private RecyclerView dataReminder;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter reminderAdapter;
-    private TextView text_gallery;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        reminderViewModel =
-//                ViewModelProviders.of(this).get(ReminderViewModel.class);
+
         View view = inflater.inflate(R.layout.fragment_reminder, container, false);
-        reminder = view.findViewById(R.id.dataReminder);
+        dataReminder = view.findViewById(R.id.dataReminder);
         firebaseFirestore = firebaseFirestore.getInstance();
 
         Query query = firebaseFirestore.collection("Event");
@@ -53,23 +59,40 @@ public class Reminder extends Fragment {
 
             @Override
             protected void onBindViewHolder(@NonNull EventViewHolder holder, int position, @NonNull Event model) {
+
                 holder.event.setText(model.getEvent());
                 holder.tanggalMulai.setText(model.getTanggalMulai());
                 holder.tanggalSelesai.setText(model.getTanggalSelesai());
                 holder.address.setText(model.getAddress());
+                holder.note.setText(model.getNote());
+
+                holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                        DocumentReference documentReference = firebaseFirestore.collection("Event")
+//                        .document(Event.getTanggalMulai());
+//                        documentReference.delete();
+                        //Toast.makeText(requireActivity(), "Data Deleted", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         };
 
-//        final TextView textView = view.findViewById(R.id.text_gallery);
-//        reminderViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-        reminder.setLayoutManager(new LinearLayoutManager(getContext()));
-        reminder.setAdapter(reminderAdapter);
+        dataReminder.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dataReminder.setAdapter(reminderAdapter);
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        reminderAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        reminderAdapter.stopListening();
     }
 
     private class EventViewHolder extends RecyclerView.ViewHolder{
@@ -78,6 +101,7 @@ public class Reminder extends Fragment {
         private TextView tanggalMulai;
         private TextView tanggalSelesai;
         private TextView note;
+        private Button btnDelete;
 
         public EventViewHolder(@NonNull View itemView){
             super(itemView);
@@ -87,17 +111,7 @@ public class Reminder extends Fragment {
             tanggalMulai = itemView.findViewById(R.id.isiTanggalMulai);
             tanggalSelesai = itemView.findViewById(R.id.isiTanggalSelesai);
             note = itemView.findViewById(R.id.isiNote);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
         }
-    }
-
-    @Override
-    public void onStop(){
-        super.onStop();
-        reminderAdapter.stopListening();
-    }
-    @Override
-    public void onStart(){
-        super.onStart();
-        reminderAdapter.startListening();
     }
 }

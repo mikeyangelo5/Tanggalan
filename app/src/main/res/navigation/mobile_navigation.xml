@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_year"
+        android:id="@+id/nav_reminder"
         android:name="com.example.calendar.ui.gallery.Reminder"
-        android:label="@string/menu_year"
+        android:label="@string/menu_reminder"
         tools:layout="@layout/fragment_reminder" />
 
     <fragment

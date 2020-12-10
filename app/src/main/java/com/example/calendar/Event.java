@@ -1,11 +1,16 @@
 package com.example.calendar;
 
 public class Event {
-    private String tanggalMulai;
+    private static String tanggalMulai;
     private String tanggalSelesai;
     private String event;
     private String address;
     private String note;
+    private int id;
+
+    public Event(){
+
+    }
 
     public Event(){
 
@@ -18,7 +23,11 @@ public class Event {
         this.note = note;
     }
 
-    public String getTanggalMulai() {
+    public int getId() {
+        return id;
+    }
+
+    public static String getTanggalMulai() {
         return tanggalMulai;
     }
 

@@ -4,51 +4,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:background="@color/colorAccent"
+    android:gravity="center"
+    android:background="@drawable/gradient"
     tools:context=".SignUp">
 
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="New Email"
-        android:textColor="@color/colorBlack"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        tools:ignore="HardcodedText" />
+        android:fontFamily="@font/alegreya_sans_sc_light"
+        android:text="SIGN UP!"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
 
     <EditText
         android:id="@+id/newEmail"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/colorWhite"
-        android:gravity="center_horizontal"
+        android:background="#11000000"
+        android:gravity="center"
         android:hint="Type a new Username"
+        android:textColorHint="@color/colorWhite"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:inputType="text"
         tools:ignore="Autofill,HardcodedText" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="New Password"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        tools:ignore="HardcodedText" />
-
     <EditText
         android:id="@+id/newPassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/colorWhite"
-        android:gravity="center_horizontal"
+        android:background="#11000000"
+        android:gravity="center"
         android:hint="Type a new Password"
+        android:textColorHint="@color/colorWhite"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -57,9 +47,10 @@
 
     <Button
         android:id="@+id/btnRegis"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
+        android:background="@drawable/pinggiran_bulat"
         android:text="Register"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="25dp"

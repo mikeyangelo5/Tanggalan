@@ -87,7 +87,6 @@ public class SignUp extends AppCompatActivity {
                         } else {
                             Toast.makeText(SignUp.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT);
                         }
-
                     }
                 });
             }

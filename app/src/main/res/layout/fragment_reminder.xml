@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragmentReminder"
-    android:background="#00b3ff"
+    android:background="@drawable/gradient"
     tools:context=".ui.gallery.Reminder">
 
     <TextView

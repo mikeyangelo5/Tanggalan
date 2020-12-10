@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:paddingBottom="40dp"
-        android:background="#00b3ff">
+        android:background="@drawable/isi_event">
 
         <TextView
             android:id="@+id/namaEvent"
@@ -149,6 +149,9 @@
 
         <Button
             android:id="@+id/btnDelete"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/pinggiran_bulat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/isiNote"

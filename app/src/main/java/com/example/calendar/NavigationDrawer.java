@@ -97,23 +97,23 @@ public class NavigationDrawer extends AppCompatActivity {
 //
 //        });
 
-        loadUserInformation();
+//        loadUserInformation();
 //
     }
-    private void loadUserInformation(){
-        Log.i(TAG, "getAllDocument: masuk logi");
-        String string= mAuth.getCurrentUser().getEmail().toString();
-        firebaseFirestoreDb.collection("DaftarUser")
-                .document(string)
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        email.setText(documentSnapshot.get("username").toString());
-
-                    }
-                });
-    }
+//    private void loadUserInformation(){
+//        Log.i(TAG, "getAllDocument: masuk logi");
+//        String string= mAuth.getCurrentUser().getEmail().toString();
+//        firebaseFirestoreDb.collection("DaftarUser")
+//                .document(string)
+//                .get()
+//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                        email.setText(documentSnapshot.get("username").toString());
+//
+//                    }
+//                });
+//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

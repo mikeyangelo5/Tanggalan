@@ -1,7 +1,7 @@
 package com.example.calendar;
 
 public class Event {
-    private static String tanggalMulai;
+    private String tanggalMulai;
     private String tanggalSelesai;
     private String event;
     private String address;
@@ -12,22 +12,20 @@ public class Event {
 
     }
 
-    public Event(){
-
-    }
     public Event(String tanggalMulai, String tanggalSelesai, String event, String address, String note) {
         this.tanggalMulai = tanggalMulai;
         this.tanggalSelesai = tanggalSelesai;
         this.event = event;
         this.address = address;
         this.note = note;
+        id++;
     }
 
     public int getId() {
         return id;
     }
 
-    public static String getTanggalMulai() {
+    public String getTanggalMulai() {
         return tanggalMulai;
     }
 

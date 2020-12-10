@@ -1,6 +1,7 @@
 package com.example.calendar.ui.gallery;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +25,11 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,6 +40,7 @@ public class Reminder extends Fragment {
     private RecyclerView dataReminder;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter reminderAdapter;
+    private String TAG;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,8 +63,9 @@ public class Reminder extends Fragment {
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull EventViewHolder holder, int position, @NonNull Event model) {
-
+            protected void onBindViewHolder(@NonNull final EventViewHolder holder, int position, @NonNull final Event model) {
+                Event event = new Event();
+                final String id = String.valueOf(event.getId());
                 holder.event.setText(model.getEvent());
                 holder.tanggalMulai.setText(model.getTanggalMulai());
                 holder.tanggalSelesai.setText(model.getTanggalSelesai());
@@ -69,10 +75,8 @@ public class Reminder extends Fragment {
                 holder.btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        DocumentReference documentReference = firebaseFirestore.collection("Event")
-//                        .document(Event.getTanggalMulai());
-//                        documentReference.delete();
-                        //Toast.makeText(requireActivity(), "Data Deleted", Toast.LENGTH_SHORT).show();
+                        DocumentReference documentReference = firebaseFirestore.collection("Event").document(id);
+                        documentReference.delete();
                     }
                 });
             }
